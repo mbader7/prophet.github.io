@@ -1,0 +1,341 @@
+/* تنسيق عام */
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700&display=swap');
+
+:root {
+    --primary-color: #1a5276;
+    --secondary-color: #117a65;
+    --accent-color: #d4ac0d;
+    --light-bg: #f9f9f9;
+    --dark-bg: #2c3e50;
+    --text-color: #333;
+    --light-text: #f9f9f9;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Tajawal', 'Amiri', serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--light-bg);
+    padding: 0;
+    margin: 0;
+}
+
+/* الهيدر */
+header {
+    background: linear-gradient(135deg, var(--primary-color), var(--dark-bg));
+    color: var(--light-text);
+    text-align: center;
+    padding: 3rem 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('https://i.imgur.com/JXgFJwL.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.15;
+    z-index: 0;
+}
+
+header h1 {
+    position: relative;
+    z-index: 1;
+    font-size: 2.5rem;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* القائمة الرئيسية */
+nav {
+    background-color: var(--dark-bg);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--box-shadow);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+}
+
+nav li {
+    margin: 0;
+}
+
+nav a {
+    display: block;
+    color: var(--light-text);
+    text-decoration: none;
+    padding: 1rem;
+    transition: background-color 0.3s;
+}
+
+nav a:hover, nav a.active {
+    background-color: var(--primary-color);
+}
+
+/* المحتوى الرئيسي */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+section {
+    margin-bottom: 3rem;
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    box-shadow: var(--box-shadow);
+}
+
+h2 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    right: 0;
+    width: 50px;
+    height: 2px;
+    background-color: var(--secondary-color);
+}
+
+h3 {
+    color: var(--secondary-color);
+    margin: 1.5rem 0 1rem;
+}
+
+p {
+    margin-bottom: 1rem;
+    text-align: justify;
+}
+
+/* الجدول الزمني للغزوات */
+#battles-interactive {
+    position: relative;
+    height: 500px;
+    margin: 2rem 0;
+    background-color: var(--light-bg);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.timeline {
+    position: relative;
+    padding: 2rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 50%;
+    height: 100%;
+    width: 4px;
+    background-color: var(--primary-color);
+    transform: translateX(50%);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.timeline-item:nth-child(odd) {
+    padding-left: 50%;
+    padding-right: 2rem;
+    text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+    padding-right: 50%;
+    padding-left: 2rem;
+}
+
+.timeline-content {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.timeline-date {
+    position: absolute;
+    top: 0;
+    width: 120px;
+    padding: 0.5rem;
+    background-color: var(--accent-color);
+    color: var(--light-text);
+    border-radius: var(--border-radius);
+    text-align: center;
+    font-weight: bold;
+}
+
+.timeline-item:nth-child(odd) .timeline-date {
+    right: 50%;
+    margin-right: 2rem;
+}
+
+.timeline-item:nth-child(even) .timeline-date {
+    left: 50%;
+    margin-left: 2rem;
+}
+
+/* الخريطة التفاعلية */
+#map-container {
+    height: 400px;
+    margin: 2rem 0;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+/* الصفات والإنجازات */
+.traits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.trait-card {
+    background-color: var(--light-bg);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    box-shadow: var(--box-shadow);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.trait-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.trait-card h3 {
+    color: var(--primary-color);
+    margin-top: 0;
+}
+
+/* المراجع */
+#references ul {
+    padding-right: 1.5rem;
+}
+
+#references li {
+    margin-bottom: 0.5rem;
+}
+
+/* الفوتر */
+footer {
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+}
+
+/* التصميم المتجاوب */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    nav ul {
+        flex-direction: column;
+    }
+    
+    .timeline::before {
+        right: 2rem;
+    }
+    
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        padding-left: 0;
+        padding-right: 3rem;
+        text-align: right;
+    }
+    
+    .timeline-item:nth-child(odd) .timeline-date,
+    .timeline-item:nth-child(even) .timeline-date {
+        right: 0;
+        left: auto;
+        margin-right: 0;
+        margin-left: 0;
+        width: 90px;
+        font-size: 0.8rem;
+    }
+    
+    .traits-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* تأثيرات التمرير */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* زر العودة للأعلى */
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    box-shadow: var(--box-shadow);
+    opacity: 0;
+    transition: opacity 0.3s, background-color 0.3s;
+    z-index: 99;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+}
+
+.back-to-top:hover {
+    background-color: var(--secondary-color);
+}
